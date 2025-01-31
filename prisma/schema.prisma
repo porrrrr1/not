@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Camera {
+  id        Int  @id @default(autoincrement()) // ใช้ UUID เป็น Primary Key
+  ipAddress String  @unique  // กำหนดให้เป็น Unique
+  name      String
+  location  String
+}
